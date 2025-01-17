@@ -35,10 +35,10 @@ aws configure
 <br><br>
 
 설정 시 입력할 정보: <br>
-● Access Key ID: AWS에서 발급받은 키. <br>
-● Secret Access Key: AWS에서 발급받은 비밀 키. <br>
-● Default Region: EC2 인스턴스가 위치한 지역(예: us-east-1). <br>
-● Default Output: json 또는 text 선택. <br><br>
+●  Access Key ID: AWS에서 발급받은 키. <br>
+●  Secret Access Key: AWS에서 발급받은 비밀 키. <br>
+●  Default Region: EC2 인스턴스가 위치한 지역(예: us-east-1). <br>
+●  Default Output: json 또는 text 선택. <br><br>
 
 예)
 ```
@@ -48,4 +48,4 @@ AWS Secret Access Key [None]: *********************************
 Default region name [None]:
 ```
 <br>
-1
+
