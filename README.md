@@ -1,19 +1,18 @@
 # aws-server
 # aws ec2 원격 연동 방법
-### 1. AWS EC2에서 서버 공개
-● 보안 그룹 설정 <br>
-유형: HTTP 또는 Custom TCP <br>
-포트: 서버에서 사용하는 포트 (예: 8080) <br>
-소스: 노트북 2의 공인 IP 주소 또는 0.0.0.0/0 (테스트 용도로만 사용, 보안에 취약) <br><br>
+### 1. EC2 인스턴스의 SSH 접속 허용 <br>
+● SSH 접속은 EC2 인스턴스 생성 시 생성된 키 페어(.pem 파일)을 사용 <br><br>
 
-● 서버 실행 포트 확인 <br> 
-Spring Boot 서버가 실행 중인 포트는 <br>
-application.properties 또는 application.yml에서 설정된 server.port 값 찾기 (기본값은 8080) <br><br>
+노트북 1에서 기존 .pem 파일을 노트북 2에 전송 <br><br>
 
-● EC2 퍼블릭 IP 또는 DNS 확인 <br> 
-EC2 인스턴스의 퍼블릭 IP 또는 퍼블릭 DNS를 복사해야함 <br><br>
+● EC2 인스턴스의 보안 그룹에서 노트북 2의 공인 IP 주소에 대해 SSH 포트(기본: 22)를 허용한다. <br><br>
+유형: SSH <br>
+포트 범위: 22 <br>
+소스: 노트북 2의 공인 IP 주소 (또는 0.0.0.0/0 테스트 용도로만) <br><br>
 
-예: <br>
-퍼블릭 IP: 3.125.xxx.xxx <br>
-퍼블릭 DNS: ec2-3-125-xxx-xxx.compute-1.amazonaws.com <br><br>
-
+### 2. PowerShell에서 AWS EC2 서버 SSH 접속 준비 <br>
+키 파일 권한 설정: PowerShell을 열고 키 파일의 권한을 설정
+```
+icacls "C:\경로\your-key.pem" /inheritance:r
+icacls "C:\경로\your-key.pem" /grant:r "$($env:USERNAME):R"
+```
