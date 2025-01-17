@@ -1,7 +1,7 @@
 # aws-server
 # aws ec2 원격 연동 방법
 ### 1. EC2 인스턴스의 SSH 접속 허용 <br><br>
-----------------------------------------
+
 ● SSH 접속은 EC2 인스턴스 생성 시 생성된 키 페어(.pem 파일)을 사용 <br>
 노트북 1에서 기존 .pem 파일을 노트북 2에 전송 <br><br>
 
@@ -21,5 +21,31 @@ icacls "C:\경로\your-key.pem" /grant:r "$($env:USERNAME):R"
 
 ### 2-1. USERNAME 알아내는법 <br><br>
 
-#### 1. AWS CLI 설치 및 설정 <br>
-1-1. AWS CLI 설치
+● AWS CLI 설치 및 설정 <br>
+AWS CLI 설치 후 PowerShell에서 aws --version 명령어로 정상 설치 여부를 확인 <br>
+```
+aws --version
+```
+<br><br>
+
+AWS CLI에서 자격 증명 설정 <br>
+```
+aws configure
+```
+<br><br>
+
+설정 시 입력할 정보: <br>
+● Access Key ID: AWS에서 발급받은 키. <br>
+● Secret Access Key: AWS에서 발급받은 비밀 키. <br>
+● Default Region: EC2 인스턴스가 위치한 지역(예: us-east-1). <br>
+● Default Output: json 또는 text 선택. <br><br>
+
+예)
+```
+C:\Windows\System32>aws configure
+AWS Access Key ID [None]: ********************
+AWS Secret Access Key [None]: *********************************
+Default region name [None]:
+```
+<br>
+1
