@@ -49,3 +49,13 @@ Default region name [None]:
 ```
 <br>
 
+default region name 찾는법 : <br>
+AWS CLI 명령어를 실행해 EC2의 지역 확인 <br>
+```
+aws ec2 describe-instances --query "Reservations[*].Instances[*].[Placement.AvailabilityZone]" --output text
+```
+예)
+```
+us-east-1a
+```
+
