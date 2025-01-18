@@ -46,6 +46,7 @@ C:\Windows\System32>aws configure
 AWS Access Key ID [None]: ********************
 AWS Secret Access Key [None]: *********************************
 Default region name [None]:
+Default output format [None]:
 ```
 <br>
 
@@ -58,4 +59,4 @@ aws ec2 describe-instances --query "Reservations[*].Instances[*].[Placement.Avai
 ```
 us-east-1a
 ```
-
+<br>
